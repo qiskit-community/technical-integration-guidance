@@ -1,5 +1,6 @@
 # Recommended workflow for IBM Quantum Platform (IQP) APIs
 
+
 ### Get temporary Access token from Auth API via API Token
 
 * Copy/Create an API token at https://quantum-computing.ibm.com/
@@ -26,7 +27,7 @@ c[0] = measure q[0];''
 
 ### Run job via Runtime API
 
-* Make a POST request to `'https://runtime-us-east.quantum-computing.ibm.com/jobs'` with the following headers:     
+* Make a POST request to https://runtime-us-east.quantum-computing.ibm.com/jobs with the following headers:     
     * 'Content-Type: application/json'     
     * 'x-access-token' with the access token obtained above   
     * Include a JSON payload with the following 
@@ -38,7 +39,7 @@ curl -H 'Content-Type: application/json' -H "x-access-token: $auth_id" -d '{"pro
 ```
 
 ### Get results  
-* Make a GET request to 'https://runtime-us-east.quantum-computing.ibm.com/jobs/{job_id}/results' to retrieve the job results.   
+* Make a GET request to https://runtime-us-east.quantum-computing.ibm.com/jobs/{job_id}/results to retrieve the job results.   
 * Include the 'x-access-token' header with the access token obtained above. 
 
 ```shell
@@ -47,7 +48,7 @@ curl -H "x-access-token: $auth_id" 'https://runtime-us-east.quantum-computing.ib
 
 ### Invalidate Token (Optional)   
 
-* Make a POST request to 'https://auth.quantum-computing.ibm.com/api/users/logout' to invalidate the access token.   
+* Make a POST request to https://auth.quantum-computing.ibm.com/api/users/logout to invalidate the access token.   
 * Include the 'x-access-token' with the access token obtained above as json input
 
 ```shell
