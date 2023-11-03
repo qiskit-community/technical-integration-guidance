@@ -48,5 +48,5 @@ We also offer illustrative samples that align with our recommended workflow.
 
 ## ❓ Questions and Support
 
-If you have any questions or encounter difficulties during the integration process, please don't hesitate to open a GitHub issue in this repository. We are here to help and will address your concerns as quickly as possible. Your feedback is important to us, and we appreciate your contribution to improving our integration experience.
+If you have any questions or encounter difficulties during the integration process, please don't hesitate to open a [GitHub issue](https://github.ibm.com/Partnership-Integration/technical-integration-guidance/issues/new/choose) in this repository. We are here to help and will address your concerns as quickly as possible. Your feedback is important to us, and we appreciate your contribution to improving our integration experience.
 
