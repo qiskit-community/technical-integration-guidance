@@ -18,7 +18,7 @@ Qiskit Runtime is our quantum computing service and programming model for buildi
 
 The term "IBM Quantum Channels" here refers to the various ways in which you can interface with Qiskit Runtime. These channels might include endpoints or methods that enable you to submit jobs, retrieve results, or manage computations on the quantum systems. This flexibility allows users to seamlessly integrate Qiskit Runtime Services into their own software, services, or applications, enhancing their quantum computing capabilities. Each channel can offer different functionalities and services built on top of Qiskit Runtime.
 
-IBM Quantum expose two different channels:
+IBM Quantum exposes two different channels:
 
 * [IBM Quantum Platform](https://quantum-computing.ibm.com/): our suite of applications to support quantum research and development needs. It is an online platform allowing public and premium access to cloud-based quantum computing.
      > It is accesible via a [REST API with Open Specifications](https://runtime-us-east.quantum-computing.ibm.com/openapi#/). You can access to the [General Documentation](https://docs.quantum-computing.ibm.com/api/runtime)
