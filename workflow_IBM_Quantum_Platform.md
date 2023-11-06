@@ -29,13 +29,13 @@ c[0] = measure q[0];''
 * Make a POST request to `'https://runtime-us-east.quantum-computing.ibm.com/jobs'` with the following headers:     
     * 'Content-Type: application/json'     
     * 'x-access-token' with the access token obtained above
-    * 'x-qx-client-application' specifying the application you might be running from. For an actual Integration project, this option it is invaluable to know where jobs are coming from
+    * 'x-qx-client-application: qiskit-version-2/0.39.2/'+'your_application' specifying the application you might be running from. For an actual Integration project, this option it is invaluable to know where jobs are coming from. At this time the "qiskit-version-2/0.39.2/" string is a necessary prefix.
     * Include a JSON payload with the following 
 
         * 'program_id': 'sampler'/’estimator’,"backend": …, "hub": …, "group": …, "project": …, "params": {"circuits": [qasm_string]}
 
 ```shell
-curl -H 'Content-Type: application/json' -H "x-access-token: $auth_id" -H 'x-qx-client-application: your_application_your-current-version' -d '{"program_id": "sampler","backend": "ibmq_qasm_simulator","hub": "ibm-q-internal","group": "dev-sys-software","project": "internal-test","params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 'https://runtime-us-east.quantum-computing.ibm.com/jobs'
+curl -H 'Content-Type: application/json' -H "x-access-token: $auth_id" -H 'x-qx-client-application: qiskit-version-2/0.39.2/YOUR_APPlication' -d '{"program_id": "sampler","backend": "ibmq_qasm_simulator","hub": "ibm-q-internal","group": "dev-sys-software","project": "internal-test","params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 'https://runtime-us-east.quantum-computing.ibm.com/jobs'
 ```
 
 ### Get results  
