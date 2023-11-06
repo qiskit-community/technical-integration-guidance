@@ -33,6 +33,7 @@ After creating a QASM string from a circuit and defining the options, the job ca
 
 ```shell
 curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs'\
+-H 'x-qx-client-application: your_application_your-current-version'\ # for an actual Integration, this option it is invaluable to know where jobs are coming from
 -H 'Authorization: Bearer ACESS_Token'\
 -H 'Content-Type: application/json' \
 -H 'Service-CRN: CRN_Service'\
