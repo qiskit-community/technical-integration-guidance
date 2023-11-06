@@ -26,7 +26,6 @@ creg c[1];
 x q[0]; 
 c[0] = measure q[0]; ''
 ```
-
 ### Run job
 
 After creating a QASM string from a circuit and defining the options, the job can be send to the IBM Quantum systems through the REST API as follows.
@@ -37,6 +36,53 @@ curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs'\
 -H 'Content-Type: application/json' \
 -H 'Service-CRN: CRN_Service'\
 -d '{"program_id": "sampler", "backend": "ibmq_qasm_simulator", "start_session": false, "params": {"circuits": ["\nOPENQASM 3;\ninclude \"stdgates.inc\";\nqreg q[1];\ncreg c[1];\nx q[0];\nc[0] = measure q[0]; \n"]}}' 
+```
+### Set Runtime Parameters (optional)
+
+If no options are specified, Qiskit Runtime will automatically set parameters such as resilience level for Error Mitigation and optimization settings for remote transpilation of the circuit. So you can chose to be agnostic and leave these settings to the Qiskit Runtime default. If you are optimizing details, you can chose to specify any of the following settings. For details on each setting listed please see the [Qiskit Runtime Options documentation](https://docs.quantum-computing.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.options.Options)
+
+```shell
+{"program_id": "sampler", 
+ "backend": "ibmq_qasm_simulator", 
+ "start_session": false, 
+ "params": {"circuits": ["\nOPENQASM 3;\ninclude \"stdgates.inc\";\nqreg q[1];ncreg c[1];\nx q[0];\nc[0] = measure q[0]; \n"]},"parameters": [
+            []
+        ],
+        "circuit_indices": [
+            0
+        ],
+        "parameter_values": [
+            []
+        ],
+        "transpilation_settings": {
+            "skip_transpilation": false,
+            "initial_layout": null,
+            "layout_method": null,
+            "routing_method": null,
+            "approximation_degree": null,
+            "optimization_settings": {
+                "level": 3
+            },
+            "coupling_map": null,
+            "basis_gates": null
+        },
+        "resilience_settings": {
+            "noise_amplifier": "TwoQubitAmplifier",
+            "noise_factors": [
+                1,
+                3,
+                5
+            ],
+            "extrapolator": "LinearExtrapolator",
+            "level": 0
+        },
+        "run_options": {
+            "shots": 10000,
+            "init_qubits": true,
+            "noise_model": null,
+            "seed_simulator": null
+        }
+    }
 ```
 
 ### Wait for results
