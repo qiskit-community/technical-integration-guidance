@@ -131,3 +131,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .vscode/settings.json
+api-example-notebooks/cloud_token
+crn_service
