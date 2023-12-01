@@ -33,10 +33,23 @@ c[0] = measure q[0];''
     * Include a JSON payload with the following 
 
         * 'program_id': 'sampler'/’estimator’,"backend": …, "hub": …, "group": …, "project": …, "params": {"circuits": [qasm_string]}
+        * "start_session": true - this will open a Session for a series of jobs. Set this to false for single jobs or simulators. 
 
 ```shell
-curl -H 'Content-Type: application/json' -H "x-access-token: $auth_id" -H 'x-qx-client-application: qiskit-version-2/0.39.2/YOUR_APPlication' -d '{"program_id": "sampler","backend": "ibmq_qasm_simulator","hub": "ibm-q-internal","group": "dev-sys-software","project": "internal-test","params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 'https://runtime-us-east.quantum-computing.ibm.com/jobs'
+curl -H 'Content-Type: application/json' -H "x-access-token: $auth_id" -H 'x-qx-client-application: qiskit-version-2/0.39.2/YOUR_APPlication' -d '{"program_id": "sampler","backend": "ibm_cusco","hub": "ibm-q-internal","group": "dev-sys-software","project": "internal-test","start_session": true,"params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 'https://runtime-us-east.quantum-computing.ibm.com/jobs'
 ```
+### Run follow-up jobs in the same Session (optional)
+
+```shell
+curl -H 'Content-Type: application/json' -H "x-access-token: $auth_id" -H 'x-qx-client-application: qiskit-version-2/0.39.2/YOUR_APPlication' -d '{"program_id": "sampler","backend": "ibm_cusco","hub": "ibm-q-internal","group": "dev-sys-software","project": "internal-test","session_id": "YOUR_SESSION_ID","params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 'https://runtime-us-east.quantum-computing.ibm.com/jobs'
+```
+### Wait for results, check job status
+After submitting the job, the status can be checked using the job_id.
+
+```shell
+curl -H "x-access-token: $auth_id" 'https://runtime-us-east.quantum-computing.ibm.com/jobs/'$job_id
+```
+The status of the job can be either “Queued“, “Running“, “Completed“ or ”Failed”. 
 
 ### Get results  
 * Make a GET request to 'https://runtime-us-east.quantum-computing.ibm.com/jobs/{job_id}/results' to retrieve the job results.   
