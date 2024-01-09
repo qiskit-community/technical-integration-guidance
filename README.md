@@ -21,10 +21,10 @@ The term "IBM Quantum Channels" here refers to the various ways in which you can
 IBM Quantum exposes two different channels:
 
 * [IBM Quantum Platform](https://quantum-computing.ibm.com/): our suite of applications to support quantum research and development needs. It is an online platform allowing public and premium access to cloud-based quantum computing.
-     > It is accesible via a [REST API with Open Specifications](https://runtime-us-east.quantum-computing.ibm.com/openapi#/). You can access to the [General Documentation](https://docs.quantum-computing.ibm.com/api/runtime)
+     > It is accessible via a [REST API with Open Specifications](https://runtime-us-east.quantum-computing.ibm.com/openapi#/). You can access to the [General Documentation](https://docs.quantum-computing.ibm.com/api/runtime)
 
 * [IBM Cloud Qiskit Runtime Service](https://cloud.ibm.com/quantum): our cloud native interface for Qiskit Runtime as a quantum computing service on IBM Cloud. It allows users to run programs on larger quantum computers (that were previously limited to specific clients) as a pay-as-you-go model and to access classical developer tools and complementary cloud services.
-     > It is accesible via a [REST API with Open Specifications](https://us-east.quantum-computing.cloud.ibm.com/openapi/). You can access to the [General Documentation](https://cloud.ibm.com/apidocs/quantum-computing)
+     > It is accessible via a [REST API with Open Specifications](https://us-east.quantum-computing.cloud.ibm.com/openapi/). You can access to the [General Documentation](https://cloud.ibm.com/apidocs/quantum-computing)
 
  Here, we aim to add guidance on recommended workflows for Integration projects using these APIs. This includes control over issued tokens and websocket queries for live updates for submitted jobs. See the workflow markdown documents in this repository for the separate access channels
 
@@ -43,10 +43,10 @@ We also offer illustrative samples that align with our recommended workflow.
 
 ### 🐍 Python
 
- * [IBM Quantum Platform API exemplary jupyter notebook](/api-example-notebooks/rest_api_qasm_job.ipynb)
+ * [IBM Quantum Platform API exemplary jupyter notebook](/api-example-notebooks/rest_api_qasm_IQP.ipynb)
  * [IBM Cloud Qiskit Runtime API exemplary jupyter notebook](/api-example-notebooks/rest_api_qasm_cloud.ipynb)
 
 ## ❓ Questions and Support
 
-If you have any questions or encounter difficulties during the integration process, please don't hesitate to open a [GitHub issue](https://github.ibm.com/Partnership-Integration/technical-integration-guidance/issues/new/choose) in this repository. We are here to help and will address your concerns as quickly as possible. Your feedback is important to us, and we appreciate your contribution to improving our integration experience.
+If you have any questions or encounter difficulties during the integration process, please don't hesitate to open a [GitHub issue](https://github.com/qiskit-community/technical-integration-guidance/issues/new/choose) in this repository. We are here to help and will address your concerns as quickly as possible. Your feedback is important to us, and we appreciate your contribution to improving our integration experience.
 
