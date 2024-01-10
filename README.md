@@ -20,8 +20,8 @@ The term "IBM Quantum Channels" here refers to the various ways in which you can
 
 IBM Quantum exposes two different channels:
 
-* [IBM Quantum Platform](https://quantum-computing.ibm.com/): our suite of applications to support quantum research and development needs. It is an online platform allowing public and premium access to cloud-based quantum computing.
-     > It is accessible via a [REST API with Open Specifications](https://runtime-us-east.quantum-computing.ibm.com/openapi#/). You can access to the [General Documentation](https://docs.quantum-computing.ibm.com/api/runtime)
+* [IBM Quantum Platform](https://quantum.ibm.com/): our suite of applications to support quantum research and development needs. It is an online platform allowing public and premium access to cloud-based quantum computing.
+     > It is accessible via a [REST API with Open Specifications](https://runtime-us-east.quantum-computing.ibm.com/openapi#/). You can access to the [General Documentation](https://docs.quantum.ibm.com/api/runtime)
 
 * [IBM Cloud Qiskit Runtime Service](https://cloud.ibm.com/quantum): our cloud native interface for Qiskit Runtime as a quantum computing service on IBM Cloud. It allows users to run programs on larger quantum computers (that were previously limited to specific clients) as a pay-as-you-go model and to access classical developer tools and complementary cloud services.
      > It is accessible via a [REST API with Open Specifications](https://us-east.quantum-computing.cloud.ibm.com/openapi/). You can access to the [General Documentation](https://cloud.ibm.com/apidocs/quantum-computing)
