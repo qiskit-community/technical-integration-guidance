@@ -1,6 +1,3 @@
-#repo specific
-api-example-notebooks/token
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -132,4 +129,11 @@ dmypy.json
 .pyre/
 api-example-notebooks/cloud_token
 api-example-notebooks/crn_service
+
+#vs studio
 .vscode/settings.json
+
+#repo specific
+api-example-notebooks/token
+api-example-notebooks/cloud_token
+api-example-notebooks/crn_service
