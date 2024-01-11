@@ -4,9 +4,9 @@
 * General documentation at https://cloud.ibm.com/apidocs/quantum-computing 
 * Users needs to [create an account through IBM Cloud Qiskit Runtime Service and access to the API key and Cloud Resource Name (CRN)](https://cloud.ibm.com/apidocs/quantum-computing#authentication). 
 
-### Get temporary Access token from Auth API via API Token
+### Authenticate via Cloud API key and Cloud Resource Name
 
-* Make a POST request to https://us-east.quantum-computing.cloud.ibm.com/programs with the following following header:
+* Make a POST request to https://iam.cloud.ibm.com/identity/token with the following following header:
 
 ```shell
 curl -X POST 'https://iam.cloud.ibm.com/identity/token'\
