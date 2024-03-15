@@ -43,8 +43,8 @@ We also offer illustrative samples that align with our recommended workflow.
 
 ### 🐍 Python
 
- * [IBM Quantum Platform API exemplary jupyter notebook](/api-example-notebooks/rest_api_qasm_IQP.ipynb)
- * [IBM Cloud Qiskit Runtime API exemplary jupyter notebook](/api-example-notebooks/rest_api_qasm_cloud.ipynb)
+ * [IBM Quantum Platform API exemplary jupyter notebook](rest_api_qasm_IQP.ipynb)
+ * [IBM Cloud Qiskit Runtime API exemplary jupyter notebook](rest_api_qasm_cloud.ipynb)
 
 ## ❓ Questions and Support
 
