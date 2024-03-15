@@ -44,7 +44,7 @@ curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs' \
 
 ### (optional) Create Session 
 
-c.f. documentation at https://docs.quantum.ibm.com/api/runtime
+c.f. documentation at https://cloud.ibm.com/apidocs/quantum-computing 
 
 ```shell
 curl -X POST "https://us-east.quantum-computing.cloud.ibm.com/sessions" \
