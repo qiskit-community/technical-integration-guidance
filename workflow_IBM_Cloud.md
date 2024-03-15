@@ -4,7 +4,7 @@
 * General documentation at https://cloud.ibm.com/apidocs/quantum-computing 
 * Users needs to [create an account through IBM Cloud Qiskit Runtime Service and access to the API key and Cloud Resource Name (CRN)](https://cloud.ibm.com/apidocs/quantum-computing#authentication). 
 
-### Authenticate via Cloud API key and Cloud Resource Name
+### Get temporary Access token from Auth API via API Token
 
 * Make a POST request to https://iam.cloud.ibm.com/identity/token with the following following header:
 
@@ -39,9 +39,26 @@ curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs' \
 -H 'Authorization:Bearer '$ACCESS_Token \
 -H 'Content-Type: application/json' \
 -H 'Service-CRN: '$CRN_Service \
--d '{"program_id": "sampler", backend": "ibm_algiers","start_session": true,"params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 
+-d '{"program_id": "sampler", backend": "ibm_algiers","params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 
 ```
-### Run follow-up jobs in the same Session (optional)
+
+### (optional) Create Session 
+
+c.f. documentation at https://docs.quantum.ibm.com/api/runtime
+
+```shell
+curl -X POST "https://us-east.quantum-computing.cloud.ibm.com/sessions" \
+  -H 'Accept: application/json' \
+  -H 'Service-CRN: '$CRN_Service \
+  -H 'Authorization:Bearer '$ACCESS_Token \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "backend": "ibm_algiers"
+   }'
+```
+This will return a Session ID
+
+### Run jobs in the created Session (optional)
 
 ```shell
 curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs' \
