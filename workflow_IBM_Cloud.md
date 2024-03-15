@@ -26,6 +26,9 @@ creg c[1]; \
 x q[0]; \
 c[0] = measure q[0]; ''
 ```
+Note: From March 1, 2024, Qiskit Runtime will require that circuits and observables are transformed to use only ISA (Instruction Set Architecture) instructions supported by the system before being submitted to the primitives.
+This change also streamlines service operations to produce faster results and make more efficient use of our fleet of quantum systems. For this reason, establishing the backend will no longer be optional and will become mandatory. See the [transpilation documentation](https://docs.quantum-computing.ibm.com/transpile) for instructions to transform circuits.
+* Instances using Q-CTRL performance management do not need to transform circuits or observables.
 
 ### Run job
 
@@ -45,6 +48,8 @@ curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs' \
 ### (optional) Create Session 
 
 c.f. documentation at https://cloud.ibm.com/apidocs/quantum-computing 
+
+Note: After March 31, 2024 Qiskit Runtime sessions creation will gain exclusive access to quantum systems, and will be charged for all time from the first job in the session, until the session is closed. Please update your code as soon as possible before that date to avoid unwanted behavior. If you use qiskit-ibm-runtime, update to version 0.20.0 or higher. If you use qiskit-ibm-provider, update to version 0.10.0 or higher. In case you are using the API directly, keep in mind that /jobs will not start a session automatically, so you will have to use the new /sessions endpoint instead.
 
 ```shell
 curl -X POST "https://us-east.quantum-computing.cloud.ibm.com/sessions" \
