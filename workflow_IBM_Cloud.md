@@ -4,7 +4,7 @@
 * General documentation at https://cloud.ibm.com/apidocs/quantum-computing 
 * Users needs to [create an account through IBM Cloud Qiskit Runtime Service and access to the API key and Cloud Resource Name (CRN)](https://cloud.ibm.com/apidocs/quantum-computing#authentication). 
 
-### Authenticate via Cloud API key and Cloud Resource Name
+### Get temporary Access token from Auth API via API Token
 
 * Make a POST request to https://iam.cloud.ibm.com/identity/token with the following following header:
 
@@ -26,6 +26,9 @@ creg c[1]; \
 x q[0]; \
 c[0] = measure q[0]; ''
 ```
+Note: From March 1, 2024, Qiskit Runtime will require that circuits and observables are transformed to use only ISA (Instruction Set Architecture) instructions supported by the system before being submitted to the primitives.
+This change also streamlines service operations to produce faster results and make more efficient use of our fleet of quantum systems. For this reason, establishing the backend will no longer be optional and will become mandatory. See the [transpilation documentation](https://docs.quantum-computing.ibm.com/transpile) for instructions to transform circuits.
+* Instances using Q-CTRL performance management do not need to transform circuits or observables.
 
 ### Run job
 
@@ -39,9 +42,28 @@ curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs' \
 -H 'Authorization:Bearer '$ACCESS_Token \
 -H 'Content-Type: application/json' \
 -H 'Service-CRN: '$CRN_Service \
--d '{"program_id": "sampler", backend": "ibm_algiers","start_session": true,"params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 
+-d '{"program_id": "sampler", backend": "ibm_algiers","params": {"circuits": "OPENQASM 3;include \"stdgates.inc\";qreg q[1];creg c[1];x q[0];c[0] = measure q[0];"}}' 
 ```
-### Run follow-up jobs in the same Session (optional)
+
+### (optional) Create Session 
+
+c.f. documentation at https://cloud.ibm.com/apidocs/quantum-computing 
+
+Note: After March 31, 2024 Qiskit Runtime sessions creation will gain exclusive access to quantum systems, and will be charged for all time from the first job in the session, until the session is closed. Please update your code as soon as possible before that date to avoid unwanted behavior. If you use qiskit-ibm-runtime, update to version 0.20.0 or higher. If you use qiskit-ibm-provider, update to version 0.10.0 or higher. In case you are using the API directly, keep in mind that /jobs will not start a session automatically, so you will have to use the new /sessions endpoint instead.
+
+```shell
+curl -X POST "https://us-east.quantum-computing.cloud.ibm.com/sessions" \
+  -H 'Accept: application/json' \
+  -H 'Service-CRN: '$CRN_Service \
+  -H 'Authorization:Bearer '$ACCESS_Token \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "backend": "ibm_algiers"
+   }'
+```
+This will return a Session ID
+
+### Run jobs in the created Session (optional)
 
 ```shell
 curl -X POST 'https://us-east.quantum-computing.cloud.ibm.com/jobs' \
