@@ -127,13 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-api-example-notebooks/cloud_token
-api-example-notebooks/crn_service
 
 #vs studio
 .vscode/settings.json
 
 #repo specific
-api-example-notebooks/token
-api-example-notebooks/cloud_token
-api-example-notebooks/crn_service
+token
+cloud_token
+crn_service
