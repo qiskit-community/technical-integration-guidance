@@ -116,12 +116,3 @@ The status of the job can be either “Queued“, “Running“, “Completed“
 ```shell
 curl -H "x-access-token: $auth_id" 'https://api.quantum-computing.ibm.com/runtime/jobs/'$job_id'/results'
 ```
-
-### Invalidate Token (Optional)   
-
-* Make a POST request to 'https://auth.quantum-computing.ibm.com/api/users/logout' to invalidate the access token.   
-* Include the 'x-access-token' with the access token obtained above as json input
-
-```shell
-curl -H "x-access-token: $auth_id" 'https://auth.quantum-computing.ibm.com/api/users/logout'
-```
